@@ -1,0 +1,43 @@
+{% extends 'layouts/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h2>Upload Data Files</h2>
+
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      
+      <!-- Drag-and-drop inputs for .txt and .xlsx files -->
+      <div class="form-group file-upload">
+          <label for="{{ upload_form.dirty_txt_file.id_for_label }}" class="col-form-label">
+              <i class="fas fa-file"></i> Upload Text File (.txt)
+          </label>
+          <div class="col">
+              {{ upload_form.dirty_txt_file }}
+          </div>
+      </div>
+
+      <div class="form-group file-upload">
+          <label for="{{ upload_form.dirty_excel_file.id_for_label }}" class="col-form-label">
+              <i class="fas fa-file"></i> Upload Excel File (.xlsx)
+          </label>
+          <div class="col">
+              {{ upload_form.dirty_excel_file }}
+          </div>
+      </div>
+
+      <!-- Custom process button -->
+      <div class="form-group">
+        <div class="col">
+            {% if upload_form.helper.form_show_errors %}
+                <button type="submit" class="btn btn-primary">Process Data</button>
+            {% endif %}
+        </div>
+    </div>
+  </form>
+
+  {% block javascript %}
+   {% include 'includes/scripts.html' %}
+  {% endblock %}
+{% endblock %}

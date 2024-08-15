@@ -1,0 +1,11 @@
+
+
+{% block content %}
+  <h2>Upload Data Files</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ dirty_form.as_p }}
+    {{ clean_form.as_p }}
+    <button type="submit">Process Data</button>
+  </form>
+{% endblock %}

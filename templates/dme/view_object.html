@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load plotly_dash %}
+
+{% block content %}
+<h2>{{ object.bom.name }}</h2>
+<p>Uploaded: {{ object.uploaded_date }}</p>
+
+<h3>BOM Data</h3>
+<div>
+    {% plotly_app name=bom_app_name %}
+</div>
+
+<h3>Pick and Place Data</h3>
+<div>
+    {% plotly_app name=pnp_app_name %}
+</div>
+{% endblock %}

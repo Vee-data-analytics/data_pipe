@@ -1,0 +1,16 @@
+cd ../pcbflow
+black *.py
+cd footprints
+black *.py
+cd ../..
+cd tests
+black *.py
+cd ..
+cd examples
+black basic/*.py
+black eagle_import/*.py
+black kicad_import/*.py
+black sample/*.py
+black skidl_test/*.py
+cd ../scripts
+black *.py

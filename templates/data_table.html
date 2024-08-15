@@ -1,0 +1,32 @@
+{% extends "layouts/base.html" %}
+
+<style>
+    .content {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 100px; /* Increased padding to 100px */
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+      }
+    </style>
+
+{% block title %} Processed files {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+
+
+{% block content %}
+    <main class="content">
+        {% load plotly_dash %}
+        <h3>Processed Data</h3>
+        <div id="DataTableApp">
+            {% plotly_app name='DataTableApp' ratio=1.75  %}
+        </div>
+        
+    </main>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

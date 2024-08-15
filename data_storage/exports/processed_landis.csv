@@ -1,0 +1,272 @@
+Location,Value,Technical Description,X-Column,Y-Column,Rotation
+BUZ1,,Buzzer 4KHz / 10nF Pin type,,,
+C1,,"Aluminum, 10 uF, 20 %, 350 V, P5 D10, L20, THD",,,
+C10,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C100,,"Ceramic, NP0/C0G, 2.2 nF, 5 %, 50 V, 0603/1608M, SMD",,,
+C101,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C102,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C104,,"Aluminum, 10000 uF, 20 %, 16 V, P 8.0 L 37.5 D 18.5, THD",,,
+C105,,"Ceramic, X7R, 0.47 uF, 10 %, 16 V, 0805/2012M, SMD",,,
+C106,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C107,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C108,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C11,,"Aluminum, 220 uF, 20 %, 25 V, P 4.0 L 11.5 D 8.0, THD",,,
+C12,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C13,,"Aluminum, 220 uF, 20 %, 25 V, P 4.0 L 11.5 D 8.0, THD",,,
+C14,,"Ceramic, X7R, 3.3 nF, 10 %, 50 V, 0603/1608M, SMD",,,
+C15,,"Ceramic, NP0/C0G, 82 pF, 5 %, 50 V, 0603, SMD",,,
+C17,,"Aluminum, 220 uF, 20 %, 25 V, P 4.0 L 11.5 D 8.0, THD",,,
+C18,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C19,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C2,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C20,,"X2, 0.47 uF, 10 %, 305 V, P=15;W=18;H=19;T=12.5; d=0.8, THD",,,
+C21,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C22,,"Ceramic, NP0/C0G, 100 pF, 5 %, 50 V, 0603/1608M, SMD",,,
+C23,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C27,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C28,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C29,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C3,,"Ceramic, NP0/C0G, 8.2 nF, 5 %, 50 V, 0603, SMD",,,
+C30,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C31,,"Other (see additional), 100 uF, 20 %, 20 V, 7343, SMD",,,
+C32,,"Aluminum, 10 uF, 20 %, 350 V, P5 D10, L20, THD",,,
+C33,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C35,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C36,,"Ceramic, NP0/C0G, 1 nF, 5 %, 50 V, 0603/1608M, SMD",,,
+C37,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C38,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C39,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C4,,"Ceramic, NP0/C0G, 8.2 nF, 5 %, 50 V, 0603, SMD",,,
+C40,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C41,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C42,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C43,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C44,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C45,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C46,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C47,,"X2, 0.1 uF, 10 %, 275 V, P15 L18W8.5H14.5 d0.8, THD",,,
+C48,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C49,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C5,,"Ceramic, X7R, 0.022 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C50,,"Aluminum, 10000 uF, 20 %, 16 V, P 8.0 L 37.5 D 18.5, THD",,,
+C51,,"Ceramic, NP0/C0G, 12 pF, 5 %, 50 V, 0603/1608M, SMD",,,
+C52,,"Ceramic, NP0/C0G, 12 pF, 5 %, 50 V, 0603/1608M, SMD",,,
+C53,,"Ceramic, NP0/C0G, 2.2 nF, 5 %, 50 V, 0603/1608M, SMD",,,
+C54,,"Ceramic, X7R, 0.022 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C55,,"Ceramic, X7R, 15 nF, 5 %, 50 V, 0603/1608M, SMD",,,
+C56,,"Aluminum, 220 uF, 20 %, 25 V, P 4.0 L 11.5 D 8.0, THD",,,
+C57,,"Tantal, 10 uF, 10 %, 16 V, 3528-21 (Case B), SMD",,,
+C58,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C59,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C6,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C60,,"Ceramic, X7R, 22 uF, 10 %, 16 V, 1210, SMD",,,
+C62,,"Ceramic, X7R, 0.22 uF, 10 %, 16 V, 0603/1608M, SMD",,,
+C63,,"Ceramic, X7R, 0.22 uF, 10 %, 16 V, 0603/1608M, SMD",,,
+C64,,"Ceramic, NP0/C0G, 100 pF, 5 %, 50 V, 0603/1608M, SMD",,,
+C68,,"Ceramic, NP0/C0G, 47 pF, 5 %, 50 V, 0603/1608M, SMD",,,
+C69,,"Ceramic, NP0/C0G, 1.5 nF, 2 %, 50 V, 0603/1608M, SMD",,,
+C7,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C70,,"Ceramic, NP0/C0G, 680 pF, 2 %, 50 V, 0603/1608M, SMD",,,
+C71,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C72,,"Ceramic, NP0/C0G, 1 nF, 5 %, 50 V, 0603/1608M, SMD",,,
+C73,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C74,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C75,,"Ceramic, NP0/C0G, 8.2 pF, 5 %, 50 V, 0603/1608M, SMD",,,
+C76,,"Ceramic, NP0/C0G, 8.2 pF, 5 %, 50 V, 0603/1608M, SMD",,,
+C77,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C78,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C79,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C8,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C80,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C81,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C82,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C83,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C84,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C85,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C86,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C87,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C88,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C89,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C9,,"Ceramic, X7R, 47 nF, 10 %, 50 V, 0603/1608M, SMD",,,
+C90,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C91,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C92,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C93,,"Ceramic, X5R, 4.7 uF, 10 %, 25 V, 0805/2012M, SMD",,,
+C94,,"Ceramic, X7R, 0.1 uF, 20 %, 16 V, 0603/1608M, SMD",,,
+C95,,"Ceramic, NP0/C0G, 2.2 nF, 5 %, 50 V, 0603/1608M, SMD",,,
+C96,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C97,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C98,,"Ceramic, X7R, 0.01 uF, 10 %, 50 V, 0603/1608M, SMD",,,
+C99,,"Ceramic, NP0/C0G, 150 pF, 5 %, 50 V, 0603/1608M, SMD",,,
+CA1,,"Ceramic, X7R, 0.00068 uF, 10 %, 16 V, 0612, SMD",,,
+D1,,"Signal, BAV70, 70 V, 0.1 A, SOT-23, SMD",,,
+D10,,"Signal, BAV70, 70 V, 0.1 A, SOT-23, SMD",,,
+D11,,"Signal, BAV70, 70 V, 0.1 A, SOT-23, SMD",,,
+D12,,"Schottky, BAT54S, 30 V, 0.2 A, 0.31 W, SOT23, SMD",,,
+D13,,"Rectifier, S1M, 1000 V, 1 A, 1.8 W, SMA (DO-214AC), SMD",,,
+D14,,"Rectifier, S1M, 1000 V, 1 A, 1.8 W, SMA (DO-214AC), SMD",,,
+D15,,"Schottky, MBRA340T3, 40 V, 3 A, SMA, SMD",,,
+D16,,"Schottky, MBRA340T3, 40 V, 3 A, SMA, SMD",,,
+D17,,"Signal, LL4148, 75 V, 0.3 A, 0.5 W, MiniMELF SOD-80, SMD",,,
+D18,,"Schottky, Schottky Barrier Rectifier, 30 V, 2 A, SOD123FL, SMD",,,
+D19,,"Schottky, Schottky Barrier Rectifier, 30 V, 2 A, SOD123FL, SMD",,,
+D2,,"Schottky, BAT54C, 30 V, 0.2 A, 0.23 W, SOT23, SMD",,,
+D3,,"Schottky, BAT54S, 30 V, 0.2 A, 0.31 W, SOT23, SMD",,,
+D4,,"Schottky, Schottky Barrier Rectifier, 30 V, 2 A, SOD123FL, SMD",,,
+D5,,"Schottky, Schottky Barrier Rectifier, 30 V, 2 A, SOD123FL, SMD",,,
+D6,,"Schottky, BAT54S, 30 V, 0.2 A, 0.31 W, SOT23, SMD",,,
+D7,,"Rectifier, US1M, 1000 V, 1 A, DO-214AC, SMD",,,
+D8,,"Schottky, BAT54S, 30 V, 0.2 A, 0.31 W, SOT23, SMD",,,
+D9,,"Schottky, BAT54C, 30 V, 0.2 A, 0.23 W, SOT23, SMD",,,
+DZ1,,"SMD Zener Diode, 13 V, -2..2 %, 20 mA, SOD-123, SMD",,,
+DZ14,,"BZT52C10, 10 V, -5..5 %, 5 mA, 0.375 W, SOD-123F, SMD",,,
+DZ6,,"SMD Zener Diode, 15 V, -2..2 %, 20 mA, 830 mW, SOD-123, SMD",,,
+ISO2,,"Transistor Out, SOP-4, SMD",,,
+J1,,"Board-to-Flat, 8 Poles, 1.25 mm, Female, THD",,,
+J3,,"Board-to-Flat, 2 Poles, 3.96 mm, Male, THD",,,
+J4,,"Board-to-Board, 4 Poles, 2.54 mm, Male, THD",,,
+J7,,"Board-to-Flat, 7 Poles, 2 mm, Female, SMD",,,
+L1,,"INDUC, SMD, PWR SHIELDED, 20%, 560uH",,,
+L2,,"RF, 1000 uH, 5 %, 0.03 A, 40 Ohm, L4.8W3.4H3.4, SMD",,,
+L3,,"RF, 1000 uH, 5 %, 0.03 A, 40 Ohm, L4.8W3.4H3.4, SMD",,,
+L4,,"HF, 47 uH, 20 %, 1.08 A, 0.338 Ohm, L = 7.6; W = 7.6; H = 3.4, SMD",,,
+L5,,"RF, 560 uH, 5 %, 0.05 A, 30 Ohm, L4.5 W3.2 H3.2, SMD",,,
+L6,,"Storage, 1 mH, 10 %, 0.23 A, 2.6 Ohm, H5.8d9.8, SMD",,,
+L7,,"HF, 18 uH, 20 %, 1.6 A, 0.1 Ohm, W = 7.8; H=5.3, SMD",,,
+L8,,"INDUC, SMD, PWR SHIELDED, 20%, 560uH",,,
+LED3,,"23-22B/R7G6, Multi Colour, Bottom, 25 mA, 1206/3216M, SMD",,,
+LED4,,"23-22B/R7G6, Multi Colour, Bottom, 25 mA, 1206/3216M, SMD",,,
+MOV2,MOV-14-3PINS,"VDR, 0.6 W, 460 V, THD, D = 14; P = 7.5 H = 21.5 d = 1.0",3,Bottom,0
+PCB,,"PCB, P160 Customer Interface Unit G3",,,
+Q1,SOT23,"BC807, PNP, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,0
+Q10,SOT23,"BC817, NPN, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,270
+Q18,SOT23,"BC807, PNP, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,270
+Q19,SOT23,"BC817, NPN, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,270
+Q2,SOT23,"2N7002, MOS-FET Enh N, 60 V, 0.115 A, 7.5 Ohm, 0.225 W, SOT-23, SMD",3,Bottom,270
+Q20,SOT23,"BC807, PNP, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,180
+Q21,SOT23,"BC817, NPN, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,270
+Q3,SOT23,"BC807, PNP, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,0
+Q4,SOT23,"BC817, NPN, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,270
+Q5,SOT23,"BC817, NPN, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,180
+Q6,SOT23,"BC807, PNP, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,180
+Q7,SOT23,"BC807, PNP, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,270
+Q8,SOT23,"AAT8401, MOS-FET Enh P, 20 V, 2.4 A, 0.065 Ohm, 1.3 W, SOT-23, SMD",3,Bottom,0
+Q9,SOT23,"BC817, NPN, 45 V, 0.5 A, 0.25 W, SOT23, SMD",3,Bottom,180
+R1,RES-0603,"330 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,180
+R10,RES-0603,"200 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R102,RES-0603,"2.2 MOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R103,RES-0603,"330 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,180
+R104,RES-0603,"330 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R105,RES-0603,"10 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R11,RES-0603,"10 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R12,RES-0603,"680 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R13,RES-0603,"15 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R14,RES-0603,"1 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R15,RES-0603,"47 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,180
+R16,RES-0603,"30 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R17,RES-0603,"47 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R18,RES-0603,"150 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R19,RES-0603,"15 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R2,0805,"4.7 Ohm, 1 %, 0.125 W, Thick Film, 200 ppm/K, SMD, 0805/2012M",2,Bottom,0
+R20,RES-0603,"4.7 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R21,RES-0603,"4.7 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R22,RES-0603,"47 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R23,RES-0603,"6.8 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,180
+R24,RES-0603,"10 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R25,1206,"150 Ohm, 1 %, 0.25 W, Thick Film, 100 ppm/K, SMD, 1206/3216M",2,Bottom,90
+R26,0805,"4.7 Ohm, 1 %, 0.125 W, Thick Film, 200 ppm/K, SMD, 0805/2012M",2,Bottom,270
+R27,0805,"4.7 Ohm, 1 %, 0.125 W, Thick Film, 200 ppm/K, SMD, 0805/2012M",2,Bottom,270
+R28,0805,"4.7 Ohm, 1 %, 0.125 W, Thick Film, 200 ppm/K, SMD, 0805/2012M",2,Bottom,0
+R29,RES-0603,"30 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R3,R2W-STYLE2-UP,"300 Ohm, 5 %, 3 W, Wirewound, 300 ppm/K, THD, D = 5.0; L = 15.5; d = 0.8, x = 2",2,Bottom,180
+R30,RES-0603,"2.2 MOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R31,RES-0603,"62 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R32,RES-0603,"30 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R33,RES-0603,"4.7 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R34,RES-0603,"47 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R35,RES-0603,"15 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R36,RES-0603,"1.1 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R37,0805,"4.7 Ohm, 1 %, 0.125 W, Thick Film, 200 ppm/K, SMD, 0805/2012M",2,Bottom,180
+R38,RES-0603,"240 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R39,RES-0603,"240 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R4,RES-0603,"1 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,180
+R40,RES-0603,"4.7 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R41,RES-0603,"4.7 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R42,RES-0603,"1.1 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R43,RES-0603,"130 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R44,RES-0603,"30 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R45,RES-0603,"1 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R46,RES-0603,"240 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R47,PTC-A570,"PTC, 56 Ohm, 20 %, THD, W9.0H12.5d0.6",2,Bottom,180
+R49,RES-0603,"430 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R5,RES-0603,"3 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R50,RES-0603,"430 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R51,RES-0603,"182 kOhm, 0.5 %, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R52,RES-0603,"20.5 kOhm, 0.5 %, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R53,RES-0603,"4.7 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R54,RES-0603,"10 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R55,RES-0603,"4.7 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R56,RES-0603,"33 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R57,RES-0603,"33 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R58,RES-0603,"10 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,180
+R59,RES-0603,"5.1 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R6,RES-0603,"3.9 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R60,RES-0603,"10 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R61,1206,"0.22 Ohm, 1 %, Thick Film, 100 ppm/K, SMD, 1206",2,Bottom,0
+R62,RES-0603,"10 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R63,RES-0603,"820 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R64,RES-0603,"3.3 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R66,2512,"0.51 Ohm, 1 %, Thick Film, 100 ppm/K, SMD, 2512",2,Bottom,0
+R67,RES-0603,"4.7 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R68,RES-0603,"2.4 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R69,RES-0603,"5.6 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,180
+R7,RES-0603,"15 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R70,RES-0603,"7.5 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R71,RES-0603,"3 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R72,RES-0603,"5.1 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R73,RES-0603,"8.2 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R74,RES-0603,"330 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R75,RES-0603,"10 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,180
+R76,RES-0603,"10 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R77,RES-0603,"6.8 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R78,RES-0603,"6.8 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R79,RES-0603,"10 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R8,RES-0603,"68 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R80,RES-0603,"18 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,180
+R81,RES-0603,"430 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R82,RES-0603,"4.7 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R83,RES-0603,"100 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R84,1206,"100 kOhm, 1 %, Thick Film, 100 ppm/K, SMD, 1206/3216M",2,Bottom,180
+R85,1206,"100 kOhm, 1 %, Thick Film, 100 ppm/K, SMD, 1206/3216M",2,Bottom,180
+R86,1206,"100 kOhm, 1 %, Thick Film, 100 ppm/K, SMD, 1206/3216M",2,Bottom,180
+R87,RES-0603,"82 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R88,RES-0603,"560 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R89,RES-0603,"6.8 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R9,RES-0603,"68 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R90,RES-0603,"6.8 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R91,RES-0603,"10 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R92,RES-0603,"820 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,0
+R93,RES-0603,"820 Ohm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R94,RES-0603,"30 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R95,RES-0603,"130 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,180
+R96,RES-0603,"6.8 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R97,RES-0603,"6.8 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,270
+R98,RES-0603,"330 kOhm, 1 %, 0.1 W, Thick Film, 100 ppm/K, SMD, 0603/1608M",2,Bottom,90
+R99,1206,"0.056 kOhm, 1 %, 0.25 W, Thick Film, 100 ppm/K, SMD, 1206/3216M",2,Bottom,90
+RP1,SIL-R4-SMD,"4.7 kOhm, 5 %, 0.0625 W, Thick Film, 200 ppm/K, SMD, 1206/3216M",8,Bottom,0
+RP3,SIL-R4-SMD,"2.2 kOhm, 5 %, 0.0625 W, Thick Film, 200 ppm/K, SMD, 1206 (4 X 0603)",8,Bottom,270
+RP4,SIL-R4-SMD,"2.2 kOhm, 5 %, 0.0625 W, Thick Film, 200 ppm/K, SMD, 1206 (4 X 0603)",8,Bottom,0
+RP5,SIL-R4-SMD,"4.7 kOhm, 5 %, 0.0625 W, Thick Film, 200 ppm/K, SMD, 1206/3216M",8,Bottom,270
+RP6,SIL-R4-SMD,"4.7 kOhm, 5 %, 0.0625 W, Thick Film, 200 ppm/K, SMD, 1206/3216M",8,Bottom,180
+TZ2,TZ-SMC,"TRANSZORB, TH, 1500W, SMCJ6.5CA",2,Bottom,180
+U10,QFN-20L-4X4,"Amplifier, NCS565xMNTXG, QFN20, SMD",21,Bottom,0
+U13,QFN48(7X7),"PLC, QFN48, SMD",49,Bottom,180
+U2,DGQ_G10,"TPS5401, Regulator adjustable, 500 mA, 5 %, MSOP10, SMD",11,Bottom,180
+U3,SOT23,"431, Voltage Reference, 1.24..1.25..16 V, 0.2 W, SOT-23-3, SMD",3,Bottom,270
+U4,QFP100-4,"32Bit, FLASH, LQFP100, SMD",100,Bottom,0
+U6,SOT223-UPAK,"NCP1072, SMPS Controller, SOT-223, SMD",4,Bottom,180
+U7,SOT23-5,"Amplifier, TLV271, SOT23-5, SMD",5,Bottom,0
+W3,CON-WIRE-B,"BATTERY SPRING, 9 VOLT",1,Bottom,180
+W4,CON-WIRE-B,"BATTERY SPRING, 9 VOLT",1,Bottom,180
+X2,XTAL-SMD-3.2X2.5-4P,"Quartz Crystal, 12 MHz, 30 ppm, 10 pF, L3.2 W2.5 H0.7 mm, SMD",4,Bottom,270
+X4,XTAL-SMD-3.2X2.5-4P,"Quartz Crystal, 16 MHz, 30 ppm, 8 pF, 3225, SMD",4,Bottom,270

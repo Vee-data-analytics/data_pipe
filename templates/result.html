@@ -1,0 +1,64 @@
+{% extends 'layouts/base.html' %}
+{% include 'include/navigation.html' %}
+
+{% block content %}
+  <h2>Processed Data</h2>
+  <form method="post" action="">
+    {% csrf_token %}
+    <button type="submit" name="export_csv" class="btn btn-success">{% csrf_token %} Export Data as CSV</button>
+    <button type="submit" name="export_txt" class="btn btn-primary">{% csrf_token %} Export Data as TXT</button>
+  </form>
+  <div id="data-table-container">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Designators</th>
+          <th>Child</th>
+          <th>X-Column</th>
+          <th>Y-Column</th>
+          <th>Rotations</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in df_result.values|slice:":25" %} {# Display the first 25 rows #}
+        <tr>
+          <td class="styled-td">{{ row.0 }}</td>
+          <td class="styled-td">{{ row.1 }}</td>
+          <td class="styled-td">{{ row.2 }}</td>
+          <td class="styled-td">{{ row.3 }}</td>
+          <td class="styled-td">{{ row.4 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <style>
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+    }
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+    </style>
+  {% endblock %}

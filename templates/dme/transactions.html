@@ -1,0 +1,92 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Processed files {% endblock %}
+
+{% block stylesheets %}
+<!-- Add any specific stylesheets here -->
+{% endblock stylesheets %}
+
+{% block content %}
+<div style="margin-top: 100px">
+    <h2>Processed Files</h2>
+</div>
+<main class="content" style="align-items: flex-start;">
+    <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+                <tr>
+                    <th class="border-bottom" scope="col">CAD FILES LIST</th>
+                    <th class="border-bottom" scope="col">ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in objects %}
+                <tr>
+                    <th class="text-gray-900" scope="row">
+                        <a href="{% url 'processing_data:view_object_dme' object.id %}">{{ object }}</a>
+                    </th>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="{% url 'processing_data:download_object' object.id %}" class="btn btn-primary btn-lg">
+                                <i class="fas fa-cloud-download-alt"></i>
+                            </a>
+                            <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#editModal" data-id="{{ object.id }}" data-name="{{ object.processed_file.name }}">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <form action="{% url 'processing_data:delete_object' object.id %}" method="POST" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-lg">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit File Name</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="editForm" method="POST">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="fileName">File Name</label>
+                        <input type="text" class="form-control" id="fileName" name="new_name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $('#editModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var id = button.data('id');
+        var name = button.data('name');
+
+        var modal = $(this);
+        modal.find('.modal-body input').val(name);
+        modal.find('#editForm').attr('action', '{% url "processing_data:edit_object" 0 %}'.slice(0, -2) + id + '/');
+    });
+</script>
+{% endblock %}

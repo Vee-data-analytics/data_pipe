@@ -1,0 +1,17 @@
+
+{% load plotly_dash %}
+
+{% block content %}
+  <h2>Processed Data</h2>
+  <div id="result-graph"></div>
+  <button id="process-button">Process Data</button>
+  {% plotly_app name="process_data_dash" %}
+  <div id="data-table-container">
+  
+  </div>
+{% endblock %}
+
+{% block javascript %}
+  <script>
+  </script>
+{% endblock %}

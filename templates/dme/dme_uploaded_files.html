@@ -1,0 +1,106 @@
+{% extends "layouts/base.html" %}
+
+{% load custom_filters %}
+
+{% block title %} Uploaded and Processed Files {% endblock %}
+
+{% block stylesheets %}
+<style>
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0,0,0,.05);
+    }
+    .table td, .table th {
+        vertical-align: middle;
+        border-top: 1px solid #dee2e6;
+        padding: 0.75rem;
+    }
+    .file-name {
+        font-weight: 500;
+        color: #2c3e50;
+    }
+    .file-time {
+        font-size: 0.85em;
+        color: #7f8c8d;
+    }
+    .file-type {
+        font-size: 0.85em;
+        color: #7f8c8d;
+        text-transform: uppercase;
+    }
+    .upload-instance {
+        border-left: 4px solid #3498db;
+    }
+    .processed-file {
+        border-left: 4px solid #e74c3c;
+    }
+    .btn-group .btn {
+        margin-right: 5px;
+    }
+    .file-details {
+        margin-left: 20px;
+    }
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+<div style="margin-top: 100px">
+    <h2>Uploaded and Processed Files</h2>
+</div>
+<main class="content" style="align-items: flex-start;">
+    <div class="table-responsive">
+        <table class="table table-striped align-items-center">
+            <thead class="thead-light">
+                <tr>
+                    <th class="border-bottom" scope="col">File Name</th>
+                    <th class="border-bottom" scope="col">Files</th>
+                    <th class="border-bottom" scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for file in uploaded_files %}
+                <tr class="upload-instance">
+                    <td>
+                        <span class="file-name">{{ file.bom.name|basename }}</span><br>
+                        <span class="file-time">Uploaded: {{ file.uploaded_date|date:"Y-m-d H:i" }}</span>
+                    </td>
+                    <td>
+                        <details>
+                            <summary>View Files</summary>
+                            <div class="file-details">
+                                <p>
+                                    <span class="file-type">BOM File:</span>
+                                    <span class="file-name">{{ file.bom.name|basename }}</span>
+                                </p>
+                                <p>
+                                    <span class="file-type">Pick and Place File:</span>
+                                    <span class="file-name">{{ file.pick_n_place.name|basename }}</span>
+                                </p>
+                            </div>
+                        </details>
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="{% url 'customer:download_object' file.id %}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-cloud-download-alt"></i> Download
+                            </a>
+                            <!-- Add the new View button here -->
+                            <a href="{% url 'customer:view_uploaded_object' file.id %}" class="btn btn-info btn-sm">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                            <!-- Add other actions as needed -->
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<!-- Keep the Edit Modal as is -->
+
+{% endblock %}
+
+{% block scripts %}
+<!-- Keep your existing script -->
+{% endblock %}

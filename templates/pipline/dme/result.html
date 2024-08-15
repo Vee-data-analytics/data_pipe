@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+{% include 'include/navigation.html' %}
+
+{% block content %}
+  <h2>Processed Data</h2>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" name="export_csv" class="btn btn-success">Export Data as CSV</button>
+    <button type="submit" name="export_txt" class="btn btn-primary">Export Data as TXT</button>
+  </form>
+  <div id="data-table-container">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Designators</th>
+          <th>Child</th>
+          <th>X-Column</th>
+          <th>Y-Column</th>
+          <th>Rotations</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in df_result.values|slice:":25" %} {# Display the first 25 rows #}
+        <tr>
+          <td class="styled-td">{{ row.0 }}</td>
+          <td class="styled-td">{{ row.1 }}</td>
+          <td class="styled-td">{{ row.2 }}</td>
+          <td class="styled-td">{{ row.3 }}</td>
+          <td class="styled-td">{{ row.4 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

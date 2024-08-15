@@ -1,0 +1,40 @@
+{% extends 'layouts/base.html' %}
+{% include 'include/navigation.html' %}
+
+{% block content %}
+<h2> Process DME  Directory </h2>
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">Process CAD</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="{% url 'processing_data:process_dme' %}">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body">Process stores BOM</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="{% url 'processing_data:process_dme_bom' %}">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block javascript %}
+   {% include 'includes/scripts.html' %}
+{% endblock %}
+  
+{% block footer %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <p>&copy; 2023 Your Company</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

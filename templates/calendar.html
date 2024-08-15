@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Volt Premium Bootstrap Dashboard - Calendar</title>
+    <link href="fullcalendar/main.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="calendar"></div>
+
+    <!-- Include FullCalendar JS -->
+    <script src="fullcalendar/main.js"></script>
+    <!-- Include your custom JS file -->
+    <script src="your_custom_script.js"></script>
+</body>
+</html>
+
+<script>
+
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        selectable: true,
+        initialView: 'dayGridMonth',
+        themeSystem: 'bootstrap',
+        editable: true,
+        events: [
+            {% for data in processed_data %}
+            {
+                title: '{{ data.title }}',
+                start: '{{ data.production_date }}',
+                end: '{{ data.closing_date }}',
+                className: 'bg-blue',
+                dragabble: true
+            },
+            {% endfor %}
+        ]
+    });
+
+    calendar.render();
+
+</script>

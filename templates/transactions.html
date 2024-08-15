@@ -1,0 +1,80 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Processed files {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+    <style>
+        .content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 20px; /* Add some top padding to create space */
+            font-size: 18px; /* Adjust font size as needed */
+            font-family: Arial, sans-serif; /* Choose an appropriate font family */
+        }
+
+        /* Add rounded borders to the table cells */
+        table, th, td {
+            border: 1px solid black;
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        /* Optional: Zebra striping for table rows */
+        .table tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        /* Center the table horizontally */
+        .table-responsive {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Style the top row for better visibility */
+        .thead-light th {
+            background-color: #e0e0e0; /* Slightly darker gray background */
+            font-weight: bold;
+            text-align: left; /* Align text to the left */
+            padding-left: 20px; /* Add left padding for better alignment */
+        }
+    </style>
+{% endblock stylesheets %}
+
+{% block content %}
+<main class="content">
+    <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+                <tr>
+                    <th class="border-bottom" scope="col">CAD FILES LIST</th>
+                    <th class="border-bottom" scope="col">ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in objects %}
+                <tr>
+                    <th class="text-gray-900" scope="row">
+                        <a href="{% url 'processing_data:view_object' object.id %}">{{ object }}</a>
+                    </th>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="{% url 'processing_data:download_object' object.id %}" class="btn btn-primary btn-lg">
+                                <i class="fas fa-cloud-download-alt"></i>
+                            </a>
+                            <a href="{% url 'processing_data:edit_object' object.id %}" class="btn btn-success btn-lg">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <a href="{% url 'processing_data:delete_object' object.id %}" class="btn btn-danger btn-lg">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}

@@ -35,12 +35,14 @@ INSTALLED_APPS = [
     "apps.data_tables",
     'apps.process_data',
     'apps.customer',
+    'apps.component_data',
     'apps.user',
 
      # third party libraries
     'channels',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'crispy_forms',
+    'import_export',
     'django_bootstrap5',
 
     

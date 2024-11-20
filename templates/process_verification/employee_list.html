@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Employee List</h1>
+    <ul>
+        {% for employee in employees %}
+            <li>{{ employee.name }} ({{ employee.role }})</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'board_varification:employee_create' %}">Add Employee</a>
+{% endblock %}

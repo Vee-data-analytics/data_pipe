@@ -3,7 +3,7 @@ from apps.process_data import models
 import pandas as pd
 from django_plotly_dash import DjangoDash
 import dash as dcc
-import dash_html_components as html
+#import dash_html_components as html
 from dash import dash_table
 from dash.dependencies import Input, Output,State
 from django.shortcuts import render, get_object_or_404

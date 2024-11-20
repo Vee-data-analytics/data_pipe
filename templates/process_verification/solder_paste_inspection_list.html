@@ -1,0 +1,12 @@
+
+<!-- app_name/solder_paste_inspection_list.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Solder Paste Inspection List</h1>
+    <ul>
+        {% for solder_paste_inspection in solder_paste_inspections %}
+            <li>{{ solder_paste_inspection }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'solder_paste_inspection_create' %}">Add Solder Paste Inspection</a>
+{% endblock %}

@@ -57,3 +57,7 @@ class ProcessedDataLG(models.Model):
 
     def __str__(self):
         return os.path.splitext(os.path.basename(self.uploaded_file.bom.name))[0]
+    
+
+
+

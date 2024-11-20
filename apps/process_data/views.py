@@ -27,7 +27,7 @@ import pandas as pd
 from django.views.decorators.csrf import csrf_protect
 import os
 import dash as dcc
-import dash_html_components as html
+#import dash_html_components as html
 from dash import dash_table
 from dash.dependencies import Input, Output,State
 import pandas as pd

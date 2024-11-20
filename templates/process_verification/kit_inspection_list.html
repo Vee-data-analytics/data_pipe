@@ -1,0 +1,12 @@
+
+<!-- app_name/kit_inspection_list.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Kit Inspection List</h1>
+    <ul>
+        {% for kit_inspection in kit_inspections %}
+            <li>{{ kit_inspection }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'board_varification:kit_inspection_create' %}">Add Kit Inspection</a>
+{% endblock %}

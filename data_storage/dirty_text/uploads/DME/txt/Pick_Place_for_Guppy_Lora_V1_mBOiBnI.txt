@@ -1,0 +1,45 @@
+Altium Designer Pick and Place Locations
+C:\Users\adria\AppData\Local\TempReleases\Snapshot\1\Fabrication\Pick Place\Pick Place for Guppy Lora V1.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       25/07/24
+Time:       18:10
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mm
+
+Designator Comment     Layer       Footprint         Center-X(mm) Center-Y(mm) Rotation Description                            
+U2         MMA8451Q    TopLayer    LGA16-3X3X1_N     32.6250      15.0500      270      "3 Axis Accelerometer, QFN 16 Pin"     
+R6         10K         TopLayer    R-0402            32.0500      18.2000      270      "Chip Resistor 0402 1%"                
+R5         10K         TopLayer    R-0402            30.0250      16.1500      270      "Chip Resistor 0402 1%"                
+R4         "10R 1/10W" TopLayer    R-0603            35.9250      16.8000      90       "Chip Resistor 0603 1%"                
+C16        "100nF 50V" TopLayer    C-0402            33.1500      18.1750      270      "Chip Cap 0402, 50V X7R"               
+C15        "100nF 50V" TopLayer    C-0402            30.0000      13.8500      270      "Chip Cap 0402, 50V X7R"               
+C14        "100nF 50V" TopLayer    C-0402            35.6750      13.5250      0        "Chip Cap 0402, 50V X7R"               
+C13        "1uF 50V"   TopLayer    C-0603            35.2250      12.1750      0        "Chip Cap 0603, 6.3V X5R"              
+C12        "22pF 50V"  TopLayer    C-0402            35.6750      14.7250      180      "Chip Cap 0402, 50V C0G"               
+U1         CMWX1ZZABZ  TopLayer    MURATA-CMWX1ZZABZ 46.6250      13.2750      90       "Murata CMWX1ZZABZ  LoRa Module"       
+R9         1.5k        TopLayer    R-0402            54.0000      12.2000      270      "Chip Resistor 0402 1%"                
+R8         1.5k        TopLayer    R-0402            54.0000      14.3500      90       "Chip Resistor 0402 1%"                
+R7         "10R 1/10W" TopLayer    R-0603            5.9000       9.6000       270      "Chip Resistor 0603 1%"                
+R1         150R        TopLayer    R-0402            39.2750      14.6250      270      "Chip Resistor 0402 1%"                
+R3         0r          TopLayer    R-0402            39.3250      12.3250      90       "Chip Resistor 0402 1%"                
+R2         10K         TopLayer    R-0402            43.8250      21.3500      180      "Chip Resistor 0402 1%"                
+L1         ?           TopLayer    R-0402            51.7750      21.0500      0        "Chip Inductor 0402"                   
+JP1        "Header 4"  BottomLayer SD-53253_0410     2.9000       18.1500      90       "Header, TH 4-Pin with Friction Lock." 
+DS1        LED2        TopLayer    LED_0603          37.8000      12.7750      270      "0603 Vertical LED, GREEN"             
+C18        ?           TopLayer    R-0402            53.2750      21.6000      270      "Chip Capacitor 0402"                  
+C17        ?           TopLayer    R-0402            50.2250      21.6000      270      "Chip Capacitor 0402"                  
+C11        "1uF 50V"   TopLayer    C-0603            48.0250      4.3000       90       "Chip Cap 0603, 6.3V X5R"              
+C10        "10uF 10V"  TopLayer    C-0603            46.5250      4.3000       90       "Chip Cap 0603, 6.3V X5R"              
+C9         "10uF 10V"  TopLayer    C-0603            44.9250      4.3000       90       "Chip Cap 0603, 6.3V X5R"              
+C8         "100nF 50V" TopLayer    C-0402            45.9250      21.3500      180      "Chip Cap 0402, 50V X7R"               
+C7         "100nF 50V" TopLayer    C-0402            50.4250      4.7500       90       "Chip Cap 0402, 50V X7R"               
+C6         "100nF 50V" TopLayer    C-0402            43.6250      4.7500       90       "Chip Cap 0402, 50V X7R"               
+C5         "22pF 50V"  TopLayer    C-0402            49.3250      4.7500       90       "Chip Cap 0402, 50V C0G"               
+C4         "22pF 50V"  TopLayer    C-0402            42.5250      4.7500       90       "Chip Cap 0402, 50V C0G"               
+C3         "47nF 50V"  TopLayer    C-0402            9.9000       9.1000       270      "Chip Cap 0402, 50V X7R"               
+C2         "33pF 50V"  TopLayer    C-0402            8.8000       9.1000       270      "Chip Cap 0402, 50V C0G"               
+C1         "22uF 10V"  TopLayer    C-0603            7.5000       9.5500       270      "Chip Cap 0603, 6.3V X5R"              

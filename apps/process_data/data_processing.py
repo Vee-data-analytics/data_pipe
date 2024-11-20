@@ -4,9 +4,6 @@ from django.core.files.base import ContentFile
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from io import BytesIO
-import io
-import csv
-from io import BytesIO
 from django.core.files.base import ContentFile
 from django.shortcuts import render, HttpResponse
 import pandas as pd
@@ -14,12 +11,10 @@ from .forms import UploadDataForm
 #from .models import TextData_Picknplace, DirtyData_BOM 
 from sklearn.preprocessing import LabelEncoder
 import os
-import pandas as pd
 from django.http import FileResponse
 from django.conf import settings
 from django.core.files import File
 from .import models
-from io import BytesIO
 from django.core.files.base import File
 import datetime
 

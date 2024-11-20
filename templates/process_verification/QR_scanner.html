@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% csrf_token %}
+
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
+        <video id="preview" style="max-width: 100%; border: 2px solid #000;"></video>
+        <button id="startButton" style="margin-top: 20px;">Start Scanner</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.3.1/dist/jsQR.js"></script>
+
+    <script>
+        let scanner = null;
+
+        function startScanner() {
+            const videoElement = document.getElementById('preview');
+            
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+                .then(function(stream) {
+                    videoElement.srcObject = stream;
+                    videoElement.setAttribute("playsinline", true); // required for iOS
+                    videoElement.play();
+                    scanQRCode(videoElement);
+                })
+                .catch(function(error) {
+                    console.error("Error accessing the camera", error);
+                    alert("Camera access denied. Please check your browser settings and try again.");
+                });
+            } else {
+                console.error("getUserMedia is not supported");
+                alert("Sorry, your browser doesn't support camera access.");
+            }
+        }
+
+        function scanQRCode(videoElement) {
+            const canvasElement = document.createElement('canvas');
+            const context = canvasElement.getContext('2d');
+            
+            scanner = requestAnimationFrame(function tick() {
+                if (videoElement.readyState === videoElement.HAVE_ENOUGH_DATA) {
+                    canvasElement.height = videoElement.videoHeight;
+                    canvasElement.width = videoElement.videoWidth;
+                    context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+                    const imageData = context.getImageData(0, 0, canvasElement.width, canvasElement.height);
+                    const code = jsQR(imageData.data, imageData.width, imageData.height, { inversionAttempts: "dontInvert" });
+                    if (code) {
+                        console.log("Found QR code", code.data);
+                        stopScanner();
+                        verifyQRCode(code.data);
+                    } else {
+                        scanner = requestAnimationFrame(tick);
+                    }
+                } else {
+                    scanner = requestAnimationFrame(tick);
+                }
+            });
+        }
+
+        function stopScanner() {
+            if (scanner) {
+                cancelAnimationFrame(scanner);
+                scanner = null;
+            }
+            const videoElement = document.getElementById('preview');
+            if (videoElement.srcObject) {
+                videoElement.srcObject.getTracks().forEach(track => track.stop());
+            }
+        }
+
+        function verifyQRCode(qrCodeData) {
+            const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+            fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken,
+                },
+                body: JSON.stringify({ qrData: qrCodeData }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.redirect_url) {
+                    window.location.href = data.redirect_url;
+                } else {
+                    console.error("Error: ", data.error);
+                    alert("Error verifying QR code. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error('Error verifying QR code:', error);
+                alert("Error verifying QR code. Please try again.");
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('startButton').addEventListener('click', startScanner);
+        });
+    </script>
+{% endblock %}

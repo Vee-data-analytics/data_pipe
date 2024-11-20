@@ -191,6 +191,7 @@ def process_xlsx_file(input_file):
     df = df[~df['Designator'].str.contains('Box', case=False)]
     df = df[~df['Designator'].str.contains('Serial', case=False)] 
     df = df[~df['Value'].str.contains('DNF')]
+    df = df[~df['Value'].str.contains('do not fit - nothing to order')]
     df = df[~df['DNF'].fillna('').astype(str).str.contains('DNF')]
 
     # Filter the data through in the value column and strip voltage from the value
@@ -211,8 +212,10 @@ def process_xlsx_file(input_file):
     df['Value'] = df['Value'].str.split('--').str[0]
     df['Value'] = df['Value'].str.split('  ').str[0]
     df['Value'] = df['Value'].str.replace(' ', '-')
+    df['Value'] = df['Value'].str.split('<').str[0]
     df['Value'] = df['Value'].str.split('+').str[0]
     df['Value'] = df['Value'].str.split('=').str[0]
+    df['1st Vendor Part No'] = df['1st Vendor Part No'].str.split(',').str[0]
     df['Value'] = df.apply(lambda row: row['1st Vendor Part No'] if pd.isna(row['Value']) or row['Value'] == '' else row['Value'], axis=1)
     df.drop(columns=['Size_combined'], inplace=True)
     

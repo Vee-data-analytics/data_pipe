@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<style>
+/* Increase the button size */
+.btn-large {
+  width: 300px; /* Adjust the width as needed */
+  height: 70px; /* Adjust the height as needed */
+  font-size: 1.2rem; /* Increase the font size for better readability */
+}
+
+/* Add more spacing between buttons */
+.btn-spacing {
+  margin-bottom: 1rem; /* Adjust the value as needed */
+}
+
+</style>
+
+<div class="text-center mt-5">
+  <h1>Forms Overview</h1>
+  
+  <div class="d-flex flex-column align-items-center">
+  
+  <h4>Administrative tasks</h4>
+  <div class="d-flex flex-column align-items-center">
+    
+    {% if is_programmer %}
+    <a href="{% url 'board_varification:job_number_list' %}" class="btn btn-primary btn-large btn-spacing">Job List</a>
+    <!-- Adding Create Customer and Create Product buttons -->
+    <a href="{% url 'board_varification:customer_create' %}" class="btn btn-primary btn-large btn-spacing">Create Customer</a>
+    <a href="{% url 'board_varification:product_create' %}" class="btn btn-primary btn-large btn-spacing">Create Product</a>
+    <!-- End of new buttons -->
+    <div class="d-flex flex-column align-items-center">
+    <h4>Production tasks</h4>
+   
+    <a href="{% url 'board_varification:kit_inspection_create' %}" class="btn btn-primary btn-large btn-spacing">Add Kit Inspection</a>
+    <a href="{% url 'board_varification:solder_paste_inspection_create' %}" class="btn btn-primary btn-large btn-spacing">Add Solder Paste Inspection</a>
+    <a href="{% url 'board_varification:first_off_board_inspection_create' %}" class="btn btn-primary btn-large btn-spacing">Add First Off Board Inspection</a>
+    <a href="{% url 'board_varification:last_board_produced_inspection_create' %}" class="btn btn-primary btn-large btn-spacing">Add Last Board Produced Inspection</a>
+    {% elif is_kitter %}
+    <a href="{% url 'board_varification:kit_inspection_create' %}" class="btn btn-primary btn-large btn-spacing">Add Kit Inspection</a>
+    {% elif is_setup_operator %}
+    <a href="{% url 'board_varification:last_board_produced_inspection_create' %}" class="btn btn-primary btn-large btn-spacing">Add Last Board Produced Inspection</a>
+    {% elif is_qc %}
+    <a href="{% url 'board_varification:first_off_board_inspection_create' %}" class="btn btn-primary btn-large btn-spacing">Add First Off Board Inspection</a>
+    {% elif is_paste_inspector %}
+    <a href="{% url 'board_varification:solder_paste_inspection_create' %}" class="btn btn-primary btn-large btn-spacing">Add Solder Paste Inspection</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

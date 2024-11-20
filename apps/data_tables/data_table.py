@@ -1,4 +1,5 @@
 import dash
+from dash import html, dcc
 from dash import dcc, html, dash_table
 from dash.dependencies import Input, Output, State
 import pandas as pd
@@ -55,7 +56,7 @@ def update_header_selection(contents, filename):
     if contents is not None:
         df, error_message = parse_contents(contents, filename)
         if df is not None:
-            options = [{'label': f'Row {i}', 'value': i} for i in range(min(10, len(df)))]
+            options = [{'label': f'Row {i}', 'value': i} for i in range(min(20, len(df)))]
             return (html.Div([
                 html.H5('Select Header Row'),
                 dcc.Dropdown(id='header-row-dropdown', options=options, value=0),

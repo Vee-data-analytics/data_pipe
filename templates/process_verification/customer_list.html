@@ -1,0 +1,11 @@
+<!-- app_name/customer_list.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Customer List</h1>
+    <ul>
+        {% for customer in customers %}
+            <li>{{ customer.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'board_varification:customer_create' %}">Add Customer</a>
+{% endblock %}

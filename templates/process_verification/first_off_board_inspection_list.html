@@ -1,0 +1,11 @@
+<!-- app_name/first_off_board_inspection_list.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <h1>First Off Board Inspection List</h1>
+    <ul>
+        {% for first_off_board_inspection in first_off_board_inspections %}
+            <li>{{ first_off_board_inspection }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'board_varification:first_off_board_inspection_create' %}">Add First Off Board Inspection</a>
+{% endblock %}

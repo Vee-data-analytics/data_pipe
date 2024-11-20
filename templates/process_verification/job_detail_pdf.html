@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Report - {{ job.job_number }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h2>Job Number: {{ job.job_number }}</h2>
+    <p>Date: {{ job.date }}</p>
+
+    <!-- Customer Details -->
+    <h3>Customer Details</h3>
+    {% for product in job.product_set.all %}
+        <p><strong>Customer:</strong> {{ product.customer.name }}</p>
+        <p><strong>Details:</strong> {{ product.customer.details }}</p>
+    {% endfor %}
+
+    <!-- Product Details -->
+    <h3>Product Details</h3>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>BOM Revision Number</th>
+            <th>Customer</th>
+        </tr>
+        {% for product in job.product_set.all %}
+        <tr>
+            <td>{{ product.product_ID }}</td>
+            <td>{{ product.rev_number }}</td>
+            <td>{{ product.customer.name }}</td>
+        </tr>
+        {% endfor %}
+        
+        
+<!-- Inspections -->
+<h3>Inspections</h3>
+
+    <table>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Inspector</th>
+            <th>Photo</th>
+            <th>Quantity</th>
+            <th>Paste Type</th>
+            <th>Quantity Produced</th>
+            <th>Calculated Wastage</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for inspection in job.kitinspection_set.all %}
+   <tr>
+     <td>Kit Inspection</td>
+     <td>{{ inspection.kit_inspector.name }}</td>
+     {% if inspection.photo %}
+      <td><img src="{{ inspection.photo.url }}" alt="Kit Inspection Photo" style="width:200px;"></td>
+      {% else %}
+      <td>No photo available</td>
+      {% endif %}
+      <td>{{ inspection.quantity }}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    {% empty %}
+    <tr>
+    <td colspan="7">No kit inspections found for this job.</td>
+    </tr>
+       {% endfor %}
+
+       {% for inspection in job.solderpasteinspection_set.all %}
+        <tr>
+            <td>Solder Paste Inspection</td>
+            <td>{{ inspection.paste_inspector.name }}</td>
+            {% if inspection.photo %}
+            <td><img src="{{ inspection.photo.url }}" alt="Solder Paste Inspection Photo" style="width:200px;"></td>
+            {% else %}
+            <td>No photo available</td>
+            {% endif %}
+            <td></td>
+            <td>{{ inspection.paste_type }}</td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No solder paste inspections found for this job.</td>
+        </tr>
+        {% endfor %}
+        {% for inspection in job.firstoffboardinspection_set.all %}
+        <tr>
+            <td>First Off Board Inspection</td>
+            <td>{{ inspection.roaming_qc_name.name }}</td>
+            {% if inspection.photo %}
+            <td><img src="{{ inspection.photo.url }}" alt="First Off Board Inspection Photo" style="width:200px;"></td>
+            {% else %}
+            <td></td>
+            {% endif %}
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No first off board inspections found for this job.</td>
+        </tr>
+        {% endfor %}
+
+        {% for inspection in job.lastboardproducedinspection_set.all %}
+        <tr>
+            <td>Last Board Produced Inspection</td>
+            <td>{{ inspection.setup_operator_name.name }}</td>
+            {% if inspection.photo %}
+            <td><img src="{{ inspection.photo.url }}" alt="Last Board Produced Inspection Photo" style="width:200px;"></td>
+            {% else %}
+            <td></td>
+            {% endif %}
+            <td></td>
+            <td></td>
+            <td>{{ inspection.quantity_produced }}</td>
+            <td></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No last board produced inspections found for this job.</td>
+        </tr>
+        {% endfor %}
+
+        {% for wastage in job.wastage_set.all %}
+        <tr>
+            <td>Wastage</td>
+            <td>{{ wastage.kit_inspection.kit_inspector.name }}</td>
+            <td><img src="{{ wastage.photo.url }}" alt="Wastage Photo" style="width:200px;"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{ wastage.calculated_wastage }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No wastage information found for this job.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</html>
+

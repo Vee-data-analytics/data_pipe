@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>Job Number List</h1>
+    <table style="border-collapse: collapse; width: 100%;">
+        <tr style="border-bottom: 1px solid black;">
+            <th style="border-right: 1px solid black; padding: 10px;">Job Number</th>
+            <th style="padding: 10px;">Actions</th>
+        </tr>
+        {% for job_number in job_numbers %}
+        <tr style="border-bottom: 1px solid black;">
+            <td style="border-right: 1px solid black; padding: 10px;">
+                <a href="{% url 'board_varification:job_details' job_number.job_number %}" style="text-decoration: none; padding: 5px; background-color: blue; color: white; border-radius: 5px; display: inline-block;">{{ job_number.job_number }}</a>
+            </td>
+            <td style="padding: 10px;">
+                <a href="{% url 'board_varification:download_pdf' job_number.job_number %}" style="text-decoration: none; padding: 5px; background-color: red; color: white; border-radius: 5px; display: inline-block;">Download PDF</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{% url 'board_varification:job_number_create' %}" style="text-decoration: none; padding: 5px; background-color: #007bff; color: white; border-radius: 5px; display: inline-block;">Add Job Number</a>
+{% endblock %}

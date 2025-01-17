@@ -1,17 +1,128 @@
 import dash
-from dash import html, dcc
-from dash import dcc, html, dash_table
-from dash.dependencies import Input, Output, State
+from dash import html, dcc, dash_table, callback
+from dash.dependencies import Input, Output, State, ALL
 import pandas as pd
 import base64
 import io
+from typing import Tuple, Optional, Dict
 
-app = dash.Dash(__name__, suppress_callback_exceptions=True)
+# Initialize Dash app
+app = dash.Dash(__name__)
 
+# Define required column mappings
+REQUIRED_COLUMNS = {
+    'Row': 'row',
+    'Designator': 'designator',
+    'Value': 'value',
+    'Vendor Number': 'vendor',
+    'Component Class': 'class',
+    'SMT': 'smt',
+    'DNF': 'dnf'
+}
+
+class DataProcessor:
+    @staticmethod
+    def parse_uploaded_file(contents: str, filename: str) -> Tuple[Optional[pd.DataFrame], Optional[str]]:
+        """Parse uploaded file contents into a DataFrame."""
+        try:
+            content_type, content_string = contents.split(',')
+            decoded = base64.b64decode(content_string)
+            
+            if 'csv' in filename.lower():
+                df = pd.read_csv(io.StringIO(decoded.decode('utf-8')))
+            elif 'xls' in filename.lower():
+                df = pd.read_excel(io.BytesIO(decoded))
+            else:
+                return None, 'Unsupported file type. Please upload CSV or Excel files.'
+            
+            df['Row'] = df.index
+            return df, None
+            
+        except Exception as e:
+            return None, f'Error processing file: {str(e)}'
+    
+    @staticmethod
+    def apply_header_row(df: pd.DataFrame, header_row: int) -> pd.DataFrame:
+        """Apply a new header row from the specified row index."""
+        if header_row > 0:
+            new_headers = df.iloc[header_row]
+            df = df.iloc[header_row + 1:].reset_index(drop=True)
+            df.columns = [str(val) for val in new_headers]
+        return df
+    
+    @staticmethod
+    def process_data(df: pd.DataFrame, column_state: Dict) -> pd.DataFrame:
+        """Process the DataFrame according to column mappings and filters."""
+        # Apply filters
+        for col, state in column_state.items():
+            if state.get('filters'):
+                df = df[~df[col].astype(str).isin(state['filters'])]
+        
+        # Apply column mappings
+        mapped_columns = {col: state['map'] for col, state in column_state.items() 
+                        if state.get('map')}
+        if mapped_columns:
+            df = df.rename(columns=mapped_columns)
+            
+            # Process designator column if present
+            if 'designator' in df.columns:
+                df['designator'] = df['designator'].str.split(',')
+                df = df.explode('designator').reset_index(drop=True)
+        
+        return df
+
+
+
+def create_column_control(col: str, unique_values: list, 
+                         current_map: Optional[str] = None, 
+                         current_filters: Optional[list] = None) -> html.Div:
+    """Create column mapping and filtering controls."""
+    # Convert all values to strings for consistent handling
+    formatted_values = []
+    for val in unique_values:
+        if pd.isna(val):
+            continue
+        if isinstance(val, (int, float)):
+            # Format numbers without trailing zeros
+            formatted_val = f"{val:g}"
+        else:
+            formatted_val = str(val)
+        formatted_values.append(formatted_val)
+    
+    # Sort strings naturally (so "2" comes before "10")
+    formatted_values.sort()
+    
+    return html.Div([
+        html.Div(col, style={'fontWeight': 'bold', 'textAlign': 'center', 'marginBottom': '5px'}),
+        html.Label('Map to:'),
+        dcc.Dropdown(
+            id={'type': 'column-map', 'index': col},
+            options=[{'label': k, 'value': v} for k, v in REQUIRED_COLUMNS.items()],
+            value=current_map,
+            placeholder='Select mapping',
+            style={'marginBottom': '10px', 'width': '200px'}
+        ),
+        html.Label('Exclude values:'),
+        dcc.Dropdown(
+            id={'type': 'column-filter', 'index': col},
+            options=[{'label': val, 'value': val} for val in formatted_values],
+            value=current_filters,
+            multi=True,
+            placeholder='Select values to exclude',
+            style={'width': '200px'}
+        )
+    ], style={'border': '1px solid #ddd', 'padding': '10px', 'margin': '5px', 'minWidth': '250px'})
+
+
+# App layout
 app.layout = html.Div([
+    # File Upload
     dcc.Upload(
         id='upload-data',
-        children=html.Div(['Drag and Drop or ', html.A('Select Files')]),
+        children=html.Div([
+            'Drag and Drop or ',
+            html.A('Select Files')
+        ]),
         style={
             'width': '100%',
             'height': '60px',
@@ -24,135 +135,160 @@ app.layout = html.Div([
         },
         multiple=False
     ),
-    html.Div(id='header-selection-div'),
-    html.Div(id='column-selection-div'),
-    html.Div(id='output-data-upload'),
-    dcc.Store(id='stored-data'),
-    dcc.Store(id='processed-data')
+    
+    # Controls
+    html.Div([
+        html.Label('Select Header Row:'),
+        dcc.Input(
+            id='header-row-input',
+            type='number',
+            min=0,
+            value=0,
+            style={'marginRight': '10px', 'width': '100px'}
+        ),
+        html.Button(
+            'Apply Header',
+            id='apply-header-button',
+            n_clicks=0,
+            style={'marginRight': '10px'}
+        ),
+        html.Button(
+            'Process Data',
+            id='process-button',
+            n_clicks=0,
+            style={
+                'backgroundColor': '#007bff',
+                'color': 'white',
+                'border': 'none',
+                'padding': '5px 10px'
+            }
+        ),
+    ], style={'marginBottom': '20px'}),
+    
+    # Column Controls and Data Display
+    html.Div(id='column-controls', style={'display': 'flex', 'flexWrap': 'wrap', 'gap': '10px'}),
+    html.Div(id='preview-table', style={'marginTop': '20px'}),
+    html.Div(id='output-data-upload', style={'marginTop': '20px'}),
+    
+    # Store components for state management
+    dcc.Store(id='raw-data'),
+    dcc.Store(id='column-state')
 ])
 
-def parse_contents(contents, filename):
-    content_type, content_string = contents.split(',')
-    decoded = base64.b64decode(content_string)
-    try:
-        if 'csv' in filename:
-            df = pd.read_csv(io.StringIO(decoded.decode('utf-8')))
-        elif 'xls' in filename:
-            df = pd.read_excel(io.BytesIO(decoded))
+# Callbacks
+@callback(
+    [Output('column-controls', 'children'),
+     Output('preview-table', 'children'),
+     Output('raw-data', 'data'),
+     Output('column-state', 'data')],
+    [Input('upload-data', 'contents'),
+     Input('apply-header-button', 'n_clicks'),
+     Input({'type': 'column-map', 'index': ALL}, 'value'),
+     Input({'type': 'column-filter', 'index': ALL}, 'value')],
+    [State('upload-data', 'filename'),
+     State('header-row-input', 'value'),
+     State('raw-data', 'data'),
+     State('column-state', 'data'),
+     State({'type': 'column-map', 'index': ALL}, 'id'),
+     State({'type': 'column-filter', 'index': ALL}, 'id')]
+)
+def update_interface(contents, n_clicks, map_values, filter_values,
+                    filename, header_row, stored_data, column_state,
+                    map_ids, filter_ids):
+    """Update the interface based on user interactions."""
+    ctx = dash.callback_context
+    if not ctx.triggered:
+        return [], None, None, None
+
+    trigger = ctx.triggered[0]
+    trigger_id = trigger['prop_id'].split('.')[0]
+    column_state = column_state or {}
+
+    # Handle file upload or header application
+    if trigger_id in ['upload-data', 'apply-header-button']:
+        if trigger_id == 'upload-data' and contents:
+            df, error = DataProcessor.parse_uploaded_file(contents, filename)
+            if error:
+                return [], html.Div(error), None, None
+        elif trigger_id == 'apply-header-button' and stored_data:
+            df = pd.read_json(stored_data, orient='split')
+            df = DataProcessor.apply_header_row(df, header_row)
         else:
-            return None, html.Div(['Unsupported file type.'])
-    except Exception as e:
-        print(e)
-        return None, html.Div(['There was an error processing this file.'])
-    return df, None
+            return [], None, None, None
 
-@app.callback(
-    Output('header-selection-div', 'children'),
-    Output('stored-data', 'data'),
-    Input('upload-data', 'contents'),
-    State('upload-data', 'filename')
-)
-def update_header_selection(contents, filename):
-    if contents is not None:
-        df, error_message = parse_contents(contents, filename)
-        if df is not None:
-            options = [{'label': f'Row {i}', 'value': i} for i in range(min(20, len(df)))]
-            return (html.Div([
-                html.H5('Select Header Row'),
-                dcc.Dropdown(id='header-row-dropdown', options=options, value=0),
-                html.Button('Apply Header', id='apply-header-button', n_clicks=0)
-            ]), df.to_json(date_format='iso', orient='split'))
-    return html.Div(), None
+        # Get unique values for each column
+        unique_values = {}
+        for col in df.columns:
+            # Convert column to series and get unique values
+            series = pd.Series(df[col])
+            unique_vals = series.drop_duplicates().dropna().tolist()
+            unique_values[col] = unique_vals
+        
+        # Create column controls
+        column_controls = [
+            create_column_control(
+                col,
+                unique_values[col],
+                current_map=column_state.get(col, {}).get('map'),
+                current_filters=column_state.get(col, {}).get('filters')
+            ) for col in df.columns
+        ]
 
-@app.callback(
-    Output('column-selection-div', 'children'),
-    Output('processed-data', 'data'),
-    Input('apply-header-button', 'n_clicks'),
-    State('stored-data', 'data'),
-    State('header-row-dropdown', 'value')
-)
-def update_column_selection(n_clicks, stored_data, header_row):
-    if n_clicks > 0 and stored_data is not None:
-        df = pd.read_json(stored_data, orient='split')
-        df.columns = df.iloc[header_row]
-        df = df.iloc[header_row + 1:].reset_index(drop=True)
-        
-        # Filter out null values and create column options
-        column_options = [{'label': str(col), 'value': str(col)} for col in df.columns if col is not None]
-        
-        column_selectors = html.Div([
-            html.H5('Select and Rename Columns'),
-            html.Div([
-                html.Label('Designator'),
-                dcc.Dropdown(id='designator-column', options=column_options, placeholder='Select column'),
-                dcc.Input(id='designator-rename', type='text', placeholder='Rename column (optional)')
-            ]),
-            html.Div([
-                html.Label('Value'),
-                dcc.Dropdown(id='value-column', options=column_options, placeholder='Select column'),
-                dcc.Input(id='value-rename', type='text', placeholder='Rename column (optional)')
-            ]),
-            html.Div([
-                html.Label('1st Vendor Number/Manufacture Part No'),
-                dcc.Dropdown(id='vendor-column', options=column_options, placeholder='Select column'),
-                dcc.Input(id='vendor-rename', type='text', placeholder='Rename column (optional)')
-            ]),
-            html.Div([
-                html.Label('Class/Component Class'),
-                dcc.Dropdown(id='class-column', options=column_options, placeholder='Select column'),
-                dcc.Input(id='class-rename', type='text', placeholder='Rename column (optional)')
-            ]),
-            html.Button('Apply Column Selection', id='apply-column-button', n_clicks=0)
-        ])
-        
-        return column_selectors, df.to_json(date_format='iso', orient='split')
-    return html.Div(), None
-
-@app.callback(
-    Output('output-data-upload', 'children'),
-    Input('apply-column-button', 'n_clicks'),
-    State('processed-data', 'data'),
-    State('designator-column', 'value'),
-    State('value-column', 'value'),
-    State('vendor-column', 'value'),
-    State('class-column', 'value'),
-    State('designator-rename', 'value'),
-    State('value-rename', 'value'),
-    State('vendor-rename', 'value'),
-    State('class-rename', 'value')
-)
-def update_output(n_clicks, processed_data, designator_col, value_col, vendor_col, class_col,
-                  designator_rename, value_rename, vendor_rename, class_rename):
-    if n_clicks > 0 and processed_data is not None:
-        df = pd.read_json(processed_data, orient='split')
-        
-        # Select only the chosen columns
-        df = df[[designator_col, value_col, vendor_col, class_col]]
-        
-        # Rename columns if new names are provided
-        new_names = {
-            designator_col: designator_rename or 'Designator',
-            value_col: value_rename or 'Value',
-            vendor_col: vendor_rename or 'Vendor Number',
-            class_col: class_rename or 'Component Class'
-        }
-        df = df.rename(columns=new_names)
-        
-        # Process the Designator column
-        designator_column = new_names[designator_col]
-        df[designator_column] = df[designator_column].str.split(',')
-        df = df.explode(designator_column)
-        
-        return html.Div([
-            html.H5('Processed Data'),
+        # Create preview table
+        preview_table = html.Div([
+            html.H5('Data Preview'),
             dash_table.DataTable(
-                data=df.to_dict('records'),
-                columns=[{'name': i, 'id': i} for i in df.columns],
-                page_size=10,
-            ),
-            html.Hr(),
+                data=df.head(10).to_dict('records'),
+                columns=[{'name': str(i), 'id': str(i)} for i in df.columns],
+                style_table={'overflowX': 'auto'},
+                style_cell={'textAlign': 'left'},
+                style_header={'backgroundColor': '#f8f9fa', 'fontWeight': 'bold'}
+            )
         ])
-    return html.Div()
+
+        return column_controls, preview_table, df.to_json(date_format='iso', orient='split'), column_state
+
+    # Handle column mappings and filters
+    elif '{' in trigger_id:  # Check if the trigger is from a pattern-matching callback
+        try:
+            for map_id, map_val, filter_id, filter_val in zip(map_ids, map_values, filter_ids, filter_values):
+                col = map_id['index']
+                column_state[col] = {
+                    'map': map_val,
+                    'filters': filter_val or []
+                }
+        except Exception as e:
+            print(f"Error updating column state: {e}")
+        return dash.no_update, dash.no_update, dash.no_update, column_state
+
+    return dash.no_update, dash.no_update, dash.no_update, dash.no_update
+
+@callback(
+    Output('output-data-upload', 'children'),
+    [Input('process-button', 'n_clicks')],
+    [State('raw-data', 'data'),
+     State('column-state', 'data')]
+)
+def process_data_callback(n_clicks, raw_data, column_state):
+    """Process the data according to user-specified mappings and filters."""
+    if n_clicks == 0 or raw_data is None or not column_state:
+        return html.Div()
+
+    df = pd.read_json(raw_data, orient='split')
+    processed_df = DataProcessor.process_data(df, column_state)
+
+    return html.Div([
+        html.H5('Processed Data'),
+        html.Div(f'Total rows: {len(processed_df)}', style={'marginBottom': '10px'}),
+        dash_table.DataTable(
+            data=processed_df.to_dict('records'),
+            columns=[{'name': i, 'id': i} for i in processed_df.columns],
+            page_size=10,
+            style_table={'overflowX': 'auto'},
+            style_cell={'textAlign': 'left'},
+            style_header={'backgroundColor': '#f8f9fa', 'fontWeight': 'bold'}
+        )
+    ])
 
 if __name__ == '__main__':
     app.run_server(debug=True)

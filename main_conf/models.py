@@ -36,3 +36,19 @@ class Production(models.Model):
         ('CarTck', 'Cartrack'),
         ('etv', 'ETV'),
     )
+
+
+
+class Department(models.Model):
+    name = models.TextField(null = True, blank=True, max_length=120)
+    description=models.TextField(null = True, blank=True, max_length=120)
+
+class Client(model.Model):
+    name = TextField(null = True, blank=True, max_length=120)
+    description=models.TextField(null = True, blank=True, max_length=120)
+
+
+
+class Product(models.Model):
+    name = TextField(null = True, blank=True, max_length=120)
+    revision =  TextField(null = True, blank=True, max_length=120)

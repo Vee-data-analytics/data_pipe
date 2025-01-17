@@ -91,8 +91,6 @@ def extract_size_and_voltage_2(description):
         return None, None
 
 
-
-
 def extract_resistor_component_size(description):
     size_match = re.search(r'\b\d{4}\b', description)  # Match 4-digit size (e.g., 0402 or 0201)
     if size_match:
